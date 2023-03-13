@@ -141,7 +141,7 @@ class File(BaseFile):
         with additional `metadata`. Can be use by processors
         to store additional files.
         """
-        name = name or str(uuid.uuid4())
+        name = name or (str(uuid.uuid4()) + self.get('extension', ''))
         stored_file = StorageManager.save_file(
             name=name,
             content=content,
